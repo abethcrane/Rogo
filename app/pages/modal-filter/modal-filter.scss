@@ -1,0 +1,13 @@
+.modal-filter {
+  .price-ranger {
+
+    ion-input {
+      margin-left: 10px;
+      border-bottom: 1px solid color($colors, bgColor);
+
+      input {
+        margin-left: 0;
+      }
+    }
+  }
+}

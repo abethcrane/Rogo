@@ -1,0 +1,254 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Shared Imports
+// --------------------------------------------------
+// These are the imports which make up the design of this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+// import pages css
+@import "../pages/login/login";
+@import "../pages/welcome/welcome";
+@import "../pages/register/register";
+@import "../pages/my-account/my-account";
+@import "../pages/cart/cart";
+@import "../pages/settings/settings";
+@import "../pages/currency-converter/currency-converter";
+@import "../pages/item/item";
+@import "../pages/store/store";
+@import "../pages/order-confirm/order-confirm";
+@import "../pages/home/home";
+@import "../pages/categories/categories";
+@import "../pages/category/category";
+@import "../pages/modal-filter/modal-filter";
+@import "../pages/tab-filter/tab-filter";
+@import "../pages/tab-attribute/tab-attribute";
+@import "../pages/modal-item-option/modal-item-option";
+@import "../pages/search/search";
+@import "../pages/wish-list/wish-list";
+// end import pages css
+
+// global styles
+
+.primary-bg {
+  background-color: color($colors, primary);
+}
+
+.secondary-bg {
+  background-color: color($colors, secondary);
+}
+
+.gray-bg {
+  background-color: color($colors, gray);
+}
+
+.light-bg {
+  background-color: color($colors, light);
+}
+
+.common-bg {
+  background-color: color($colors, bgColor);
+}
+
+.padding-xs {
+  padding: 10px;
+}
+
+.round {
+  border-radius: 3px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.align-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.rlt {
+  position: relative;
+}
+
+// text size
+.text-lg {
+  font-size: 1.2em;
+}
+
+.text-sm {
+  font-size: 0.8em;
+}
+
+// other size
+button.align-left {
+  .button-inner {
+    justify-content: flex-start;
+  }
+}
+
+.card {
+  border-radius: 2px;
+  font-size: 1.4rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+ion-list {
+
+  .item, .item:first-child {
+    border-color: color($colors, bgColor);
+
+    .item-inner {
+      border-color: color($colors, bgColor);
+    }
+  }
+}
+
+.list-no-border, ion-list.list-no-border {
+
+  .item:first-child {
+    border: none;
+  }
+  .item:last-child {
+    border: none;
+  }
+
+  .item-inner {
+    border: none;
+  }
+}
+
+ion-list.list-full-border {
+  @extend .list-no-border;
+
+  .item,
+  .item:first-child,
+  .item:last-child {
+    border-bottom: 1px solid color($colors, bgColor);
+  }
+}
+
+.item.no-border {
+
+  .item-inner {
+    border: none;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid color($colors, bgColor);
+}
+
+.clear {
+  clear: both;
+}
+
+.grid-no-padding {
+
+  padding: 0;
+
+  ion-col:first-child {
+    padding-left: 0;
+  }
+
+  ion-col:last-child {
+    padding-right: 0;
+  }
+}
+
+.list-form {
+
+  .item {
+    padding-left: 0;
+    margin-top: 16px;
+  }
+
+  .item:first-child {
+    border-top: 0;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text-decoration {
+  text-decoration: line-through;
+}
+
+// slide style
+.swiper-pagination-bullet {
+  background: color($colors, light);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: color($colors, primary);
+}
+
+// left menu
+.menu-bg {
+  background: url("../../img/head-bg.png");
+  background-size: 100% auto;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+}
+
+// list item
+.list-cards {
+
+  ion-row {
+    flex-wrap: wrap;
+
+    ion-col {
+      padding: 6px;
+    }
+  }
+}
+
+.card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+.btn-add-cart, .btn-add-cart.activated {
+  background: #FEE3E1;
+  color: color($colors, primary);
+}
+
+// quantity input buttons
+.input-qty {
+  display: inline-block;
+  border-top: 1px solid color($colors, bgColor);
+  border-bottom: 1px solid color($colors, bgColor);
+
+  .btn {
+    border-left: 1px solid color($colors, bgColor);
+    border-right: 1px solid color($colors, bgColor);
+    padding: 6px 12px;
+    float: left;
+  }
+
+  input {
+    padding: 6px;
+    float: left;
+    border: none;
+    text-align: center;
+    max-width: 64px;
+  }
+}

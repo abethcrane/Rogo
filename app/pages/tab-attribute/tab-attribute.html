@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <ion-buttons start>
+      <button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Search Result(105)</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="tab-attribute">
+  <!--select attributes-->
+  <ion-list class="list-no-border">
+    <ion-item>
+      <ion-label>Categories</ion-label>
+      <ion-select [(ngModel)]="attr.category">
+        <ion-option value="1">Dress</ion-option>
+        <ion-option value="2">Skirt</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sleeve Length</ion-label>
+      <ion-select [(ngModel)]="attr.sleeve">
+        <ion-option value="">All</ion-option>
+        <ion-option value="1">Short</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fabric Type</ion-label>
+      <ion-select [(ngModel)]="attr.fabric">
+        <ion-option value="">All</ion-option>
+        <ion-option value="1">Batik</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<!--Footer buttons-->
+<ion-footer class="category">
+  <ion-toolbar position="bottom">
+    <ion-buttons end>
+      <button (click)="closeModal()">
+        CANCEL
+      </button>
+      <button (click)="closeModal()">
+        <span gray>APPLY</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

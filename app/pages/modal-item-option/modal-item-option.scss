@@ -1,0 +1,15 @@
+.modal-item-option {
+
+  .item-option {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 12px;
+    margin-right: 12px;
+    border: 1px solid color($colors, bgColor);
+    font-size: 0.8em;
+
+    &.active {
+      border: 1px solid color($colors, danger);
+    }
+  }
+}

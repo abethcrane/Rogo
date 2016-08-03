@@ -1,0 +1,87 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ category.name }}</ion-title>
+    <ion-buttons end>
+      <button (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="category">
+
+  <div padding class="border-bottom text-lg">
+    <span class="pull-left" (click)="chooseSortBy()" gray>
+      {{ sortBy }}
+      <ion-icon name="md-arrow-dropdown"></ion-icon>
+    </span>
+    <ion-icon class="pull-right" name="apps" (click)="viewGrid()" [hidden]="viewType == 'grid'"></ion-icon>
+    <ion-icon class="pull-right" name="menu" (click)="viewList()" [hidden]="viewType == 'list'"></ion-icon>
+    <div class="clear"></div>
+  </div>
+
+  <!--List of items-->
+  <ion-list no-margin class="list-full-border list-products"
+            [ngClass]="{'grid': viewType == 'grid', 'list': viewType == 'list'}">
+    <ion-item class="product" *ngFor="let item of items" (click)="viewItem(item.id)">
+      <ion-thumbnail item-left>
+        <img src="{{ item.thumb }}">
+      </ion-thumbnail>
+      <!--item's information-->
+      <div>
+        <div text-wrap>{{ item.name }}</div>
+        <div>
+          <span danger *ngIf="item.sale_price">{{ item.sale_price | currency:'USD':true }}</span>
+          <span danger *ngIf="!item.sale_price">{{ item.price | currency:'USD':true }}</span>
+        </div>
+        <div class="origin-price text-sm">
+          <span *ngIf="item.sale_price" class="text-decoration">{{ item.price | currency:'USD':true }}</span>
+          <span *ngIf="item.sale_price" class="discount-rate" danger>{{ discountPercent(item.price, item.sale_price) }}%</span>
+        </div>
+        <div class="bottom-info text-sm">
+          <span gray class="pull-left" *ngIf="item.shipping == 0">Free shipping</span>
+          <span gray class="pull-left" *ngIf="item.shipping != 0">Shipping: {{ item.shipping | currency:'USD':true}}</span>
+          <span gray class="pull-right">
+            {{ item.num_orders }} Orders
+          </span>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<!--Footer buttons-->
+<ion-footer class="category">
+  <ion-toolbar position="bottom">
+    <!--filter button-->
+    <ion-buttons start>
+      <button (click)="openFilter('filter')">
+        <ion-icon name="ios-funnel"></ion-icon>
+        FILTER
+      </button>
+    </ion-buttons>
+    <!--attribute button-->
+    <ion-buttons end>
+      <button (click)="openFilter('attribute')">
+        <ion-icon name="apps"></ion-icon>
+        ATTRIBUTE
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
