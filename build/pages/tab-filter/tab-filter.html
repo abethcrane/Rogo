@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <ion-buttons start>
+      <button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Search Result(105)</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="tab-filter">
+  <!--filter list-->
+  <ion-list class="list-no-border">
+    <ion-item>
+      <ion-label>Ship to</ion-label>
+      <ion-select [(ngModel)]="filter.shipTo">
+        <ion-option value="">All Regions</ion-option>
+        <ion-option value="vn">Vietnam</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="price-ranger">
+      <ion-label>Price</ion-label>
+      <ion-input type="text" placeholder="Min"></ion-input> - <ion-input type="text" placeholder="Max"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Free shipping</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Once pice only</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sale items</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<!--Footer buttons-->
+<ion-footer class="category">
+  <ion-toolbar position="bottom">
+    <ion-buttons end>
+      <button (click)="closeModal()">
+        CANCEL
+      </button>
+      <button (click)="closeModal()">
+        <span gray>APPLY</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
