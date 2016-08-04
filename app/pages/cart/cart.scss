@@ -1,0 +1,39 @@
+.cart {
+
+  .card {
+    background: color($colors, light);
+
+    .card-header,
+    .card-footer {
+      background: #FBFBFB;
+    }
+
+    .card-footer {
+
+      div {
+        margin: 5px 0;
+      }
+    }
+
+    .trash-btn {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.cart-footer {
+  background: #FBFBFB;
+  border-top: 1px solid color($colors, bgColor);
+
+  ion-title {
+    position: absolute;
+    padding-left: 16px;
+    left: 0;
+    font-weight: normal;
+
+    .toolbar-title {
+      text-align: left;
+      padding-left: 0;
+    }
+  }
+}

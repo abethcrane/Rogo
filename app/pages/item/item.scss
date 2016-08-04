@@ -1,0 +1,25 @@
+.item {
+  ion-slides {
+    height: auto;
+
+    img {
+      float: left;
+    }
+  }
+
+  .btn-wish-list {
+    position: absolute;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 1000;
+    right: 1rem;
+  }
+
+  .item-stats {
+    ion-col + ion-col {
+      border-left: 1px solid color($colors, bgColor);
+    }
+  }
+}

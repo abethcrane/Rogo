@@ -1,0 +1,90 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button>
+        <ion-icon name="qr-scanner"></ion-icon>
+      </button>
+      <button (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="home common-bg">
+  <!-- slider on top-->
+  <ion-slides pager autoplay="2000">
+
+    <ion-slide *ngFor="let slide of slides">
+      <img src="{{ slide.src }}" alt="">
+    </ion-slide>
+
+  </ion-slides>
+
+  <!--list categories-->
+  <ion-card>
+    <ion-list class="cat-list">
+      <ion-row>
+        <ion-col *ngFor="let cat of categories | slice:0:3; let i = index" (click)="viewCategory(cat.id)">
+          <img src="{{ cat.thumb }}" alt="">
+          <div text-center>{{ cat.name }}</div>
+        </ion-col>
+        <ion-col text-center (click)="viewCategories()">
+          <img src="img/categories/all.png" alt="">
+          <div text-center>All categories</div>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-card>
+
+  <!--Deals-->
+  <ion-grid class="grid-no-padding deals">
+    <ion-row>
+      <ion-col text-center>
+        <ion-card>
+          <div>Flash Deals</div>
+          <ion-badge primary>00:00:01</ion-badge>
+          <img src="img/items/item_1.jpg" alt="">
+        </ion-card>
+      </ion-col>
+      <ion-col text-center>
+        <ion-card>
+          <div>Super Deals</div>
+          <ion-badge primary>Up to 90% off</ion-badge>
+          <img src="img/items/item_2.jpg" alt="">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h4 text-center>JUST FOR YOU</h4>
+
+  <!--List of items-->
+  <ion-grid class="list-cards">
+    <ion-row>
+      <ion-col *ngFor="let item of items" width-50 class="product" (click)="viewItem(item.id)">
+        <div class="card light-bg">
+          <img src="{{ item.thumb }}" alt="{{ item.name }}">
+          <div class="price" text-center>{{ item.price | currency:'USD':true }}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
