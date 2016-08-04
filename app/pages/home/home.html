@@ -58,7 +58,6 @@
     <ion-row>
       <ion-col *ngFor="let item of items" width-50 class="product" (click)="viewItem(item.id)">
         <div class="card light-bg">
-          <img src="{{ item.thumb }}" alt="{{ item.name }}">
           <div class="price" text-center>{{ item.price | currency:'USD':true }}</div>
           <p>{{ item.organization }}</p>
           <p>{{ item.name }}</p>
