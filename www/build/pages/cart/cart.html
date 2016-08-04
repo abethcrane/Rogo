@@ -1,0 +1,120 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="cart common-bg">
+  <!--Choose shipping location-->
+  <div class="card">
+    <ion-item class="no-border">
+      <ion-label>Ship to</ion-label>
+      <ion-select>
+        <ion-option value="">Singapore</ion-option>
+        <ion-option value="vn">Vietnam</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="card" margin-top *ngFor="let seller of cart.sellers; let sellerIndex = index" [hidden]="!seller.items.length">
+    <div class="card-header" padding>
+      Seller: {{ seller.name }}
+    </div>
+
+    <ion-list class="list-full-border" no-margin>
+      <ion-item class="product" *ngFor="let item of seller.items; let i = index">
+        <ion-thumbnail item-left>
+          <img src="{{ item.thumb }}">
+        </ion-thumbnail>
+        <!--item's information-->
+        <div>
+          <div text-wrap>{{ item.name }}</div>
+          <div class="text-sm">
+            <span gray>{{ item.options.join(',') }}</span>
+          </div>
+          <div padding-bottom>
+            <span class="pull-right">{{ item.price | currency:'USD':true }}</span>
+            <div class="clear"></div>
+          </div>
+          <div>
+            <div class="input-qty">
+            <span class="btn">
+              <ion-icon name="ios-remove"></ion-icon>
+            </span>
+              <input type="text" [(ngModel)]="item.quantity">
+            <span class="btn">
+              <ion-icon name="ios-add"></ion-icon>
+            </span>
+              <div class="clear"></div>
+            </div>
+            <div class="pull-right bottom-info text-lg trash-btn">
+              <ion-icon name="trash" gray class="pull-right" (click)="remove(i, sellerIndex)"></ion-icon>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+    <div class="card-footer" padding>
+      <div>
+        <span class="pull-left" gray>Subtotal</span>
+        <span class="pull-right" gray>{{ seller.subtotal | currency:'USD':true }}</span>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <span class="pull-left" gray>Shipping</span>
+        <span class="pull-right" gray>{{ seller.shipping | currency:'USD':true }}</span>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <span class="pull-left" gray>Total</span>
+        <span class="pull-right bold" danger>{{ seller.total | currency:'USD':true }}</span>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--Total price-->
+  <div class="card" margin-top>
+    <div class="card-footer" padding>
+      <div>
+        <span class="pull-left" gray>Subtotal</span>
+        <span class="pull-right" gray>{{ cart.subtotal | currency:'USD':true }}</span>
+        <div class="clear"></div>
+      </div>
+      <div>
+        <span class="pull-left" gray>Shipping</span>
+        <span class="pull-right" gray>{{ cart.shipping | currency:'USD':true }}</span>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer class="cart-footer" padding>
+  <ion-title>
+    <span gray>Total</span>
+    <br/>
+    <span class="bold" danger>{{ cart.total | currency:'USD':true }}</span>
+  </ion-title>
+  <ion-buttons end>
+    <button (click)="buy()" danger>
+      BUY ALL
+    </button>
+  </ion-buttons>
+</ion-footer>

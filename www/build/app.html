@@ -1,0 +1,23 @@
+<ion-menu [content]="content">
+
+  <ion-content class="menu-left">
+    <!-- User profile -->
+    <div padding class="menu-left menu-bg">
+      <a menuClose>
+        <img class="profile-picture" src="img/user/adam.jpg">
+        <h4 light>Adam Lambert</h4>
+      </a>
+    </div>
+
+    <ion-list class="list-full-border">
+      <ion-item menuClose class="menu-item" *ngFor="let page of pages" (click)="openPage(page)">
+        <ion-icon item-left name="{{ page.icon }}"></ion-icon>
+        {{ page.title }}
+        <ion-badge danger item-right *ngIf="page.count">{{ page.count }}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

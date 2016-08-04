@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>WishList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="wish-list category">
+
+  <!--List of items-->
+  <ion-list no-margin class="list-full-border list-products list">
+    <ion-item class="product" *ngFor="let item of items; let i = index" (click)="viewItem(item.id)">
+      <ion-thumbnail item-left>
+        <img src="{{ item.thumb }}">
+      </ion-thumbnail>
+      <!--item's information-->
+      <div>
+        <div text-wrap>{{ item.name }}</div>
+        <div>
+          <span danger *ngIf="item.sale_price">{{ item.sale_price | currency:'USD':true }}</span>
+          <span danger *ngIf="!item.sale_price">{{ item.price | currency:'USD':true }}</span>
+        </div>
+        <div class="origin-price text-sm">
+          <span *ngIf="item.sale_price" class="text-decoration">{{ item.price | currency:'USD':true }}</span>
+          <span *ngIf="item.sale_price" class="discount-rate" danger>{{ discountPercent(item.price, item.sale_price) }}%</span>
+        </div>
+        <div class="bottom-info text-lg" padding-right>
+          <ion-icon name="trash" gray class="pull-right" (click)="remove(i)"></ion-icon>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
