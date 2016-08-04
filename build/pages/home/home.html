@@ -53,6 +53,28 @@
     </ion-list>
   </ion-card>
 
+  <!--Deals-->
+  <ion-grid class="grid-no-padding deals">
+    <ion-row>
+      <ion-col text-center>
+        <ion-card>
+          <div>Flash Deals</div>
+          <ion-badge primary>00:00:01</ion-badge>
+          <img src="img/items/item_1.jpg" alt="">
+        </ion-card>
+      </ion-col>
+      <ion-col text-center>
+        <ion-card>
+          <div>Super Deals</div>
+          <ion-badge primary>Up to 90% off</ion-badge>
+          <img src="img/items/item_2.jpg" alt="">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h4 text-center>JUST FOR YOU</h4>
+
   <!--List of items-->
   <ion-grid class="list-cards">
     <ion-row>
@@ -60,8 +82,6 @@
         <div class="card light-bg">
           <img src="{{ item.thumb }}" alt="{{ item.name }}">
           <div class="price" text-center>{{ item.price | currency:'USD':true }}</div>
-          <p>{{ item.organization }}</p>
-          <p>{{ item.name }}</p>
         </div>
       </ion-col>
     </ion-row>
