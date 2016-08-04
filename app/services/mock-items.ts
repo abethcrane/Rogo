@@ -2,7 +2,7 @@ export let ITEMS = [
   {
     id: 1,
     category_id: 1,
-    organization: "Hopelink"
+    organization: "Mamma's Hands",
     name: "$1700 for Apartment Deposit",
     images: [
       "img/items/detail/d_1.jpg",
